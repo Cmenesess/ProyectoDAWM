@@ -7,11 +7,8 @@ let app = express();
 
 app.use(express.json());
 
-myusername = "abc"
-mypassword = "123"
-
-
 var session;
+
 router.post('/',(req,res) => {
     models.usuario.findOne({
         where: {

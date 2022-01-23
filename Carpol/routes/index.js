@@ -1,18 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var multer  = require('multer');
+const path=require('path');
 
-let bd = {
-'usuario': 'abc',
-'contrasenia': '123'
-}
-
-var auth = function(req, res, next) {
-   if (req.session && req.session.usuario === bd['usuario'])
-     return next();
-   else
-     return res.sendStatus(401);
-};
-router.get('/', auth, function(req, res, next) {
-  let usuario = req.cookies.usuario;
+const storage=multer.diskStorage({
+  destination: path.join(__dirname,'images'),
+  filename: (req,file,cb)=>{
+    cb(null,file.originalname);
+  }
 });
-module.exports = router;
+
+const upload = multer({
+  storage,
+  dest: path.join(__dirname,'../images')
+}).single('image');
+
+router.post('/upload',upload,(req,res)=>{
+  console.log(req.file)
+})
+
+module.exports=router;
