@@ -8,6 +8,7 @@ import { LandingComponent } from './landing/landing.component';
 import { MapComponent } from './map/map.component';
 import { InnerPageComponent } from './inner-page/inner-page.component';
 import { MessageService } from './services/message.service';
+import { PeticionesService } from './services/peticiones.service';
 import { InicioComponent } from './inicio/inicio.component';
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { InicioComponent } from './inicio/inicio.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,PeticionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

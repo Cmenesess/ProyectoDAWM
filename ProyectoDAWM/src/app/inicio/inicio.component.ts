@@ -13,8 +13,6 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
   login(form:any){
     console.log(form.username)
     console.log(form.password)
@@ -36,14 +34,6 @@ export class InicioComponent implements OnInit {
           icon:'error'
         })
       }
-      /*Swal.fire({
-        title: 'Are you sure?',
-        text: 'This process is irreversible.',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, go ahead.',
-        cancelButtonText: 'No, let me think'
-      })*/
     });
   }
 
