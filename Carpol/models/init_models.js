@@ -3,12 +3,14 @@ var _chofer = require("./chofer");
 var _pasajero = require("./pasajero");
 var _usuario = require("./usuario");
 var _chofer_pasajero = require("./chofer_pasajero");
+var _viaje = require("./viaje");
 
 function initModels(sequelize) {
   var usuario = _usuario(sequelize, DataTypes);
   var pasajero = _pasajero(sequelize, DataTypes);
   var chofer = _chofer(sequelize, DataTypes);
   var chofer_pasajero = _chofer_pasajero(sequelize, DataTypes);
+  var viaje = _viaje(sequelize, DataTypes);
 
   pasajero.belongsTo(usuario,{targetKey:'username',foreignKey:'id'})
   chofer.belongsTo(usuario,{targetKey:'username',foreignKey:'id'})
@@ -22,6 +24,7 @@ function initModels(sequelize) {
     pasajero,
     chofer,
     chofer_pasajero,
+    viaje
   };
 }
 module.exports = initModels;

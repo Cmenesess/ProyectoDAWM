@@ -9,7 +9,7 @@ const oneDay = 1000 * 60 * 60 * 24;
 const app = express();
 var loginRouter = require('./routes/login');
 var indexRouter = require('./routes/index');
-var productoRouter = require('./routes/producto');
+var statsRouter = require('./routes/estadisticas');
 app.listen(PORT, () => console.log(`Server Running at port ${PORT}`));
 app.use(sessions({
   secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
@@ -26,5 +26,5 @@ app.use(cookieParser());
 app.use(express.static(__dirname));
 app.use('/login', loginRouter);
 app.use('/index', indexRouter);
-app.use('/producto', productoRouter);
+app.use('/', statsRouter);
 module.exports = app;

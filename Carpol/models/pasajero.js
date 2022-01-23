@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       primaryKey:true
     },
-    latitud: DataTypes.INTEGER,
-    longitud: DataTypes.INTEGER
+    latitud: DataTypes.FLOAT(8,6),
+    longitud: DataTypes.DOUBLE(12,6)
   }, {
     sequelize,
     modelName: 'pasajero',
